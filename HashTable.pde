@@ -7,7 +7,7 @@ class HashTable {
 
   HashTable() {
     foods = new Food[SIZE];
-    positionX = 400;
+    positionX = 450;
     positionY = height- 200;
   }
 

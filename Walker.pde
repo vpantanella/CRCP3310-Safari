@@ -2,7 +2,7 @@ class Walker {
 
   final int MAX_VELOCITY = 1;
   final float NOISE_DELTA = 0.01;
-  final int WIDTH = 80;
+  final int WIDTH = 65;
   PVector location;
   PVector velocity;
   PVector acceleration;
@@ -36,9 +36,6 @@ class Walker {
     ellipse(location.x, location.y, WIDTH, WIDTH);
     for (Food f : data) {
       f.draw((int) f.location.x, (int)f.location.y, 10, 10);
-    //} else if 225 < location.x < 450 && 675 < location.x < 900 {
-    //  ellipse.remove();
-    //}
   }
   }
 
@@ -50,5 +47,11 @@ class Walker {
     data.add(f);
     f.location.x = random(0, 200);
     f.location.y = random(height-200, height);
+  }
+  
+  void vomit(Food f){
+   data.remove(f);
+   f.location.x = random(0, 200);
+   f.location.y = random(height-200, height);
   }
 }

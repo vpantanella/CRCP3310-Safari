@@ -33,6 +33,8 @@ void draw() {
   background(255);
   line(0, 390, 900, 390);
   text("Bag", 50, height-190);
+  text("Stack", 250, height-190);
+  text("HashTable", 400, height-190);
   stroke(75);
   walker.walk();
   walker.draw();
@@ -47,14 +49,23 @@ void draw() {
     if (walker.isTouching(f)) {
       walker.eat(f);
       foods.remove(f);
+    } 
+    if ((walker.location.x > 225) && (walker.location.x < 450) || (walker.location.x > 675) && (walker.location.x < 900)) {
+      walker.vomit(f);
     }
     if (stackWalker.isTouching(f)) {
       stackWalker.eat(f);
       foods.remove(f);
     }
+    if ((stackWalker.location.x > 225) && (stackWalker.location.x < 450)|| (stackWalker.location.x > 675) && (stackWalker.location.x < 900)) {
+      stackWalker.vomit(f);
+    }
     if (hashTableWalker.isTouching(f)) {
       hashTableWalker.eat(f);
       foods.remove(f);
+    }
+    if ((hashTableWalker.location.x > 225) && (hashTableWalker.location.x < 450)|| (hashTableWalker.location.x > 675) && (hashTableWalker.location.x < 900)) {
+      hashTableWalker.data.remove(f);
     }
   }
 }
